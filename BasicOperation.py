@@ -64,7 +64,7 @@ print("-"*20,"5")
 #3/ 是不是文字
 #4/ 是不是數字
 #5/ 是不是數字或文字
-text5 = "    hello WORLD ;\n 哈摟 世界 ;\n 123 //(*´∀`)~♥   "
+text5 = "    hello WORLD ;\n 哈摟 世界 ;\n 123 //(*´∀`)~♥ hello WORLD  "
 print(0,text5.split(' '))
 print(1,[w for w in text5.split() if w.startswith('h')])
 print(2,[w for w in text5.split() if w.endswith('D')])
@@ -72,19 +72,65 @@ print(3,[w for w in text5.split() if w.isalpha()])
 print(4,[w for w in text5.split() if w.isdigit()])
 print(5,[w for w in text5.split() if w.isalnum()])
 
+
 print("\n")
 print("-"*20,"6")
-# text operation
+# some text operation function
+#1/ All lowercase
+#2/ All capitalized
+#3/ All titlecase
+#4/ Return a list of the words in text5, separating by ';'
+#5/ Return a list of the words in text5, separating by '\n'
+#6/ Return a list of the words in text2, combined with '~'
+#7/ Remove space from sentence begin and end
+#8/ search 'WORLD'" from the start of sentence
+#9/ search 'WORLD' from the end of sentence
+#A/ search ALL 'WORLD' and replace to 'Python'
+# 一些文字操作方法
+#1/ 全部小寫
+#2/ 全部大寫
+#3/ 字開頭大寫
+#4/ 利用';'來分隔成陣列
+#5/ 利用跳行來分隔成陣列
+#6/ 利用'~'將陣列元素組成句子
+#7/ 使用.strip()來去除句中前後不必要的空白與tab
+#8/ (從句子前方開始)搜尋"WORLD"
+#9/ (從句子後方開始)搜尋"WORLD"
+#A/ 從句子中搜尋"WORLD"後改成'Python'
 print(1,text5.lower())
 print(2,text5.upper())
 print(3,text5.title())
 print(4,text5.split(';'))
 print(5,text5.splitlines())
-print(6,'\n'.join(text5.splitlines()))
+print(6,'~'.join(text5.splitlines()))
 print(7,text5.strip().split(' '))
+print(8,text5.find('WORLD'))
+print(9,text5.rfind('WORLD'))
+print('A',text5.replace('WORLD','Python'))
 
 
-
-
-
-
+print("\n")
+print("-"*20,"7")
+# some text file operation function
+#1/ open file named 'Your_File_.txt' with reading model
+#2/ read the first of string from 'Demo.txt'
+#3/ set searching point to the begin of the content
+#4/ print number of word in file
+#5/ print all sentence in file
+#6/ close file
+#7/ check the file is closed or not
+# 一些檔案操作的方法
+#1/ 以閱讀模式打開名叫 'Your_File_.txt' 
+#2/ 讀取'Your_File_.txt'中第一個句子
+#3/ 設置搜尋點在內容最前方
+#4/ 打印出檔案中有多少個字
+#5/ 打印出檔案中全部的句子
+#6/ 關閉檔案
+#7/ 確定膽案是否關閉
+f = open("Your_File_.txt","r")
+print(f.readlines())
+f.seek(0)
+print(len(f.read()))
+print([s for s in f.splitlines()])
+f.close()
+f.closed()
