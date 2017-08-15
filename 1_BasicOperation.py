@@ -1,6 +1,5 @@
 # Python3
 # note by Theta
-# 2017/8/13
 
 print("\n")
 print("-"*20,"1")
