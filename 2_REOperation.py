@@ -1,3 +1,4 @@
+# using Python 3
 text1 = '"Ethics are built right into the ideals and objectives of the United Nations" \
 #UNSG @ NY Society for Ethical Culture bit.ly/2guVelr @UN @UN_Woman @聯合國 @123Town @;[]#$%123 @こくさいれんごう'
 
@@ -23,6 +24,9 @@ print('='*20+'\n')
 #+ : match once or more 
 #* : match zero or more
 #? : match Zero or once
+#^ : start with ...
+#$ : end with ...
+
 #導入套件:regular expression
 #Meta-characters: Character symbols
 #\d : 任何數字,如同 [0-9]
@@ -34,12 +38,17 @@ print('='*20+'\n')
 #+ : 符合一次以上 
 #* : 沒有符合或符合一次以上
 #? : 沒有符合或符合一次
+#^ : 從...開始
+#$ : ...結尾
 import re
 print(2.1,[w for w in text1.split(" ") if re.search('@\D+',w)])
 print(2.2,[w for w in text1.split(" ") if re.search('@[A-Za-z0-9]+',w)])
 print(2.3,[w for w in text1.split(" ") if re.search('@\w+',w)])
 print(2.4,[w for w in text1.split(" ") if re.search('@[^A-Za-z0-9;]+',w)])
+print(2.5,[w for w in text1.split(" ") if re.search('^@UN',w)])
+print(2.5,[w for w in text1.split(" ") if re.search('n$',w)])
 print('='*20+'\n')
+
 
 
 
@@ -76,4 +85,6 @@ print(4.3,re.findall('\d{1,2}[-/]\d{2}[-/]\d{2,4}',text3))
 print(4.4,re.findall('\d{1,2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}',text3))
 print(4.5,re.findall('\d{1,2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* \d{4}',text3))
 print(4.6,re.findall('(?:\d{1,2} )?(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* (?:\d{1,2}, )?\d{2,4}',text3))
+
+
 
